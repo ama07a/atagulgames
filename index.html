@@ -4,7 +4,9 @@
 <meta charset="UTF-8">
 <title>Atagul Games</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+
 <style>
 :root{
   --bg:#05060c;
@@ -14,6 +16,8 @@
   --soft:#b9c2ff;
 }
 
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
 body{
   margin:0;
   background:radial-gradient(circle at top,#0d1022,#05060c);
@@ -22,14 +26,14 @@ body{
   overflow-x:hidden;
 }
 
-/* ==== INTRO ===== */
+/* ================= INTRO ================= */
 #intro{
   position:fixed;
   inset:0;
   background:#05060c;
   display:flex;
-  justify-content:center;
   align-items:center;
+  justify-content:center;
   z-index:9999;
   overflow:hidden;
 }
@@ -39,53 +43,53 @@ body{
   font-family:'Orbitron',sans-serif;
   font-size:72px;
   letter-spacing:6px;
-  position:relative;
-  z-index:2;
 }
 
 .intro-left{
   transform:translateX(-120%);
-  animation:slideLeft 1.5s forwards;
+  animation:slideLeft 1.6s ease forwards;
   color:var(--neon);
 }
 
 .intro-right{
   transform:translateX(120%);
-  animation:slideRight 1.5s forwards;
+  animation:slideRight 1.6s ease forwards;
   color:var(--neon2);
 }
 
 @keyframes slideLeft{
-  to{transform:translateX(0);}
+  to{transform:translateX(0)}
 }
 @keyframes slideRight{
-  to{transform:translateX(0);}
+  to{transform:translateX(0)}
 }
 
-/* DUMAN */
-.smoke-circle{
+/* ================= DUMAN ================= */
+.smoke{
   position:absolute;
-  width:50px;
-  height:50px;
-  background:rgba(94,252,255,0.3);
+  width:20px;
+  height:20px;
+  background:rgba(200,220,255,.6);
   border-radius:50%;
-  filter:blur(20px);
-  left:50%;
-  top:50%;
-  transform:translate(-50%, -50%) scale(0);
-  animation:smokeAnim 2.5s forwards;
+  filter:blur(8px);
+  animation:smoke 2.5s ease forwards;
 }
 
-@keyframes smokeAnim{
-  0%{transform:translate(-50%, -50%) scale(0); opacity:0.6;}
-  50%{transform:translate(-50%, -50%) scale(3); opacity:0.4;}
-  100%{transform:translate(-50%, -50%) scale(4.5); opacity:0;}
+@keyframes smoke{
+  from{
+    transform:translateY(0) scale(1);
+    opacity:.8;
+  }
+  to{
+    transform:translateY(-120px) scale(4);
+    opacity:0;
+  }
 }
 
-/* ==== SITE ==== */
+/* ================= SITE ================= */
 #site{
   opacity:0;
-  transition:1s ease;
+  transition:1.5s ease;
 }
 
 /* NAV */
@@ -129,11 +133,13 @@ header{
   text-align:center;
   padding:120px 20px;
 }
+
 header h1{
   font-family:'Orbitron',sans-serif;
   font-size:64px;
   text-shadow:0 0 25px rgba(94,252,255,.6);
 }
+
 header p{
   max-width:800px;
   font-size:18px;
@@ -186,6 +192,7 @@ footer{
 }
 </style>
 </head>
+
 <body>
 
 <!-- INTRO -->
@@ -220,10 +227,14 @@ footer{
 <img src="assets/games/atagul-doner.jpg">
 <h3>Atagul Döner</h3>
 <p>
-Atagul Döner, bağımsız bir oyun projesidir ve oyuncuya mizah dolu, eğlenceli deneyimler sunar.  
-Oyuncular, kolay öğrenilen mekaniklerle kısa sürede oyuna adapte olabilir.  
-Oyun, basit görsellik ve akıcı animasyonlarla hem mobil hem masaüstü platformlarda çalışır.  
-Eğlenceli ve tekrar oynanabilirliği yüksek bir deneyim hedeflenmiştir.
+Atagul Döner, eğlence odaklı ve mizah barındıran bağımsız bir oyun projesidir.
+Oyun, basit mekanikler üzerine kurulmuş olmasına rağmen oyuncuya akıcı ve keyifli bir deneyim sunmayı amaçlar.
+Grafik tarzı sade tutulmuş, performans ve erişilebilirlik ön planda tutulmuştur.
+</p>
+<p>
+Proje, mobil ve PC oyuncularını hedefleyerek geliştirilmiştir.
+Atagul Döner, hızlı tüketilen oyunlar yerine tekrar oynanabilirliği olan bir yapıya sahiptir.
+Oyun, Atagul Games’in eğlence odaklı projelerinin ilk örneklerinden biridir.
 </p>
 </div>
 
@@ -231,10 +242,14 @@ Eğlenceli ve tekrar oynanabilirliği yüksek bir deneyim hedeflenmiştir.
 <img src="assets/games/atagul-ide.jpg">
 <h3>Atagul IDE</h3>
 <p>
-Atagul IDE, Türkçe arayüzlü bir geliştirme ortamıdır ve oyun değildir.  
-Yeni başlayan veya deneyimli geliştiriciler için anlaşılır ve sade bir kodlama deneyimi sunar.  
-Proje yönetimi, kod düzenleme ve hata kontrolü gibi temel araçlar içerir.  
-Amaç, bireysel geliştiricilerin hızlı ve verimli üretim yapabilmesini sağlamaktır.
+Atagul IDE bir oyun değildir.
+Yazılım geliştirme amacıyla oluşturulmuş, Türkçe arayüzlü bir geliştirme ortamıdır.
+Özellikle yeni başlayan geliştiricilerin kod yazma sürecini daha anlaşılır hale getirmeyi hedefler.
+</p>
+<p>
+IDE içerisinde temel kod düzenleme, proje yönetimi ve kullanıcı dostu menüler bulunmaktadır.
+Karmaşık araçlardan uzak, sade bir yapı benimsenmiştir.
+Atagul IDE, bireysel geliştiriciler için öğrenme ve üretme sürecini kolaylaştırmak amacıyla tasarlanmıştır.
 </p>
 </div>
 </div>
@@ -250,22 +265,24 @@ Amaç, bireysel geliştiricilerin hızlı ve verimli üretim yapabilmesini sağl
 </div>
 
 <script>
-// DUMAN OLUŞTUR
+/* DUMAN OLUŞTUR */
 setTimeout(()=>{
   const intro=document.getElementById("intro");
-  for(let i=0;i<20;i++){
+  for(let i=0;i<25;i++){
     const s=document.createElement("div");
-    s.className="smoke-circle";
-    s.style.animationDelay=(i*0.1)+"s";
+    s.className="smoke";
+    s.style.left="50%";
+    s.style.top="50%";
+    s.style.animationDelay=(Math.random()*0.5)+"s";
     intro.appendChild(s);
   }
 },1600);
 
-// INTRO KAPAT
+/* INTRO KAPAT */
 setTimeout(()=>{
   document.getElementById("intro").style.display="none";
   document.getElementById("site").style.opacity=1;
-},4000);
+},3200);
 </script>
 
 </body>
