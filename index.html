@@ -5,8 +5,8 @@
 <title>Atagul Games</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Atagul Games — bağımsız oyun ve yazılım geliştirme stüdyosu.">
-<meta name="keywords" content="Atagul Games, indie game, Atagul IDE">
+<meta name="description" content="Atagul Games — bağımsız oyun ve yazılım geliştirme stüdyosu. Türkçe ilk IDE: Atagul IDE. Oyun projeleri: Atagul Döner.">
+<meta name="keywords" content="Atagul Games, Atagul IDE, Atagul Döner, indie game, Türk geliştirici, oyun stüdyosu">
 <meta name="google-site-verification" content="wjPTUMxMBJDC42E6Sxk3NU5EEZMPa19F9bMRq4t9kw8">
 
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
@@ -32,14 +32,13 @@ body{
   overflow-x:hidden;
 }
 
-/* ==== ARKAPLAN ANİMASYON ==== */
+/* Arkaplan animasyonu */
 .bg-animations{
   position:fixed;
   inset:0;
   z-index:-1;
   overflow:hidden;
 }
-
 .bg-item{
   position:absolute;
   font-size:40px;
@@ -47,17 +46,12 @@ body{
   animation:float linear infinite;
   filter:drop-shadow(0 0 10px rgba(94,252,255,.4));
 }
-
 @keyframes float{
-  from{
-    transform:translateY(110vh) translateX(0) rotate(0deg);
-  }
-  to{
-    transform:translateY(-20vh) translateX(100px) rotate(360deg);
-  }
+  from{transform:translateY(110vh) translateX(0) rotate(0deg);}
+  to{transform:translateY(-20vh) translateX(100px) rotate(360deg);}
 }
 
-/* ==== NAVBAR ==== */
+/* NAVBAR */
 nav{
   position:fixed;
   top:0;
@@ -67,7 +61,6 @@ nav{
   z-index:1000;
   border-bottom:1px solid rgba(94,252,255,.15);
 }
-
 nav ul{
   margin:0;
   padding:15px 40px;
@@ -76,20 +69,18 @@ nav ul{
   gap:30px;
   justify-content:center;
 }
-
 nav a{
   font-family:'Orbitron',sans-serif;
   color:var(--soft);
   text-decoration:none;
   font-size:14px;
 }
-
 nav a:hover{
   color:var(--neon);
   text-shadow:0 0 10px rgba(94,252,255,.6);
 }
 
-/* ==== HEADER ==== */
+/* HEADER */
 header{
   min-height:100vh;
   display:flex;
@@ -99,14 +90,12 @@ header{
   text-align:center;
   padding:120px 20px 40px;
 }
-
 header h1{
   font-family:'Orbitron',sans-serif;
   font-size:64px;
   margin:0;
   text-shadow:0 0 25px rgba(94,252,255,.6);
 }
-
 header p{
   max-width:800px;
   font-size:18px;
@@ -114,7 +103,7 @@ header p{
   margin-top:20px;
 }
 
-/* ==== SECTIONS ==== */
+/* SECTIONS */
 section{
   max-width:1200px;
   margin:auto;
@@ -123,19 +112,16 @@ section{
   transform:translateY(60px);
   transition:1s ease;
 }
-
 section.show{
   opacity:1;
   transform:none;
 }
-
 h2{
   font-family:'Orbitron',sans-serif;
   font-size:36px;
   color:var(--neon);
   margin-bottom:30px;
 }
-
 p{
   max-width:900px;
   line-height:1.9;
@@ -143,32 +129,43 @@ p{
   margin-bottom:18px;
 }
 
-/* ==== GRID & CARD ==== */
+/* GRID & CARD */
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
   gap:40px;
 }
-
 .card{
   background:linear-gradient(180deg,#141a33,#0b0f1e);
   padding:30px;
   border-radius:16px;
   transition:.4s;
 }
-
 .card:hover{
   transform:translateY(-10px);
   box-shadow:0 0 40px rgba(94,252,255,.25);
 }
-
 .card img{
   width:100%;
   border-radius:12px;
   margin-bottom:15px;
 }
 
-/* ==== FOOTER ==== */
+/* SOCIAL ICONS */
+.socials{
+  display:flex;
+  gap:25px;
+  margin-top:20px;
+}
+.socials a{
+  font-size:24px;
+  color:var(--soft);
+  transition:.3s;
+  text-decoration:none;
+}
+.socials a:hover{color:var(--neon); transform:scale(1.2);}
+
+/* FOOTER */
 footer{
   text-align:center;
   padding:50px 20px;
@@ -178,10 +175,8 @@ footer{
 }
 </style>
 </head>
-
 <body>
 
-<!-- ARKAPLAN ANİMASYON KATMANI -->
 <div class="bg-animations" id="bg"></div>
 
 <nav>
@@ -197,22 +192,19 @@ footer{
 <header id="home">
 <h1>ATAGUL GAMES</h1>
 <p>
-Bağımsız oyun ve yazılım geliştirme stüdyosu.  
-Oyun kültüründen gelen fikirlerle üretilmiş projeler.
+Bağımsız oyun ve yazılım stüdyosu. Türkçe ilk IDE: Atagul IDE ve bağımsız oyun projeleri ile dijital üretim alanında öncü.
 </p>
+<div class="socials">
+  <a href="https://www.instagram.com/atagulgames/" target="_blank">📸 Instagram</a>
+  <a href="https://www.tiktok.com/@atagulgames" target="_blank">🎵 TikTok</a>
+  <a href="https://www.linkedin.com/in/atagul-games-8a4a73306/?originalSubdomain=tr" target="_blank">💼 LinkedIn</a>
+</div>
 </header>
 
 <section id="about">
 <h2>Biz Kimiz</h2>
 <p>
-Atagul Games, 2024 yılında Antalya / Kepez’de kurulmuş bağımsız bir oyun ve yazılım geliştirme markasıdır.
-Kuruluş amacı, oyun kültürünü ve yazılım üretimini sade ama etkili projelerle birleştirmektir.
-Stüdyo, küçük ölçekli ama yüksek odaklı bir geliştirme anlayışını benimser.
-</p>
-<p>
-Geliştirilen projeler; oyunlar, yazılım araçları ve deneysel dijital ürünlerden oluşur.
-Her proje, bireysel emekle ve uzun vadeli geliştirme süreçleriyle ortaya çıkar.
-Atagul Games, hızlı tüketilen trendler yerine kalıcı deneyimler üretmeyi hedefler.
+Atagul Games, 2024 yılında Antalya / Kepez’de kurulmuş bağımsız bir oyun ve yazılım geliştirme stüdyosudur. Kurucu Ahmet Mete Atagül, Türk yazılım ve oyun sektörüne katkı sağlamak amacıyla bu projeyi başlatmıştır. Atagul IDE, Türkiye’deki ilk Türkçe yazılım geliştirme ortamıdır. Stüdyo; oyun, yazılım ve deneysel projeler üretir. Vizyonumuz; kullanıcı deneyimini ön planda tutan, uzun ömürlü ve eğitici içerikler üretmektir. Misyonumuz; bağımsız geliştirici kültürünü desteklemek ve yerli oyun sektörüne yenilikçi projeler sunmaktır. Atagul Games, oyun kültürü ve yazılım geliştirme süreçlerini harmanlayarak kaliteli projeler ortaya koyar. Ekip, her proje için detaylı planlama ve prototip aşamasını dikkatle uygular. Ürünlerimiz ulusal ve uluslararası platformlarda yayınlanır. Atagul Games, yenilikçi ve bağımsız bir stüdyo olarak sektörde öncü olmayı hedefler.
 </p>
 </section>
 
@@ -220,12 +212,10 @@ Atagul Games, hızlı tüketilen trendler yerine kalıcı deneyimler üretmeyi h
 <h2>Kurucu</h2>
 <div class="grid">
 <div class="card">
-<img src="assets/founder.jpg">
+<img src="assets/founder.jpg" alt="Ahmet Mete Atagül">
 <h3>Ahmet Mete Atagül</h3>
 <p>
-Atagul Games’in kurucusu ve geliştiricisidir.
-Oyun ve yazılım projelerini bireysel olarak tasarlayıp hayata geçirir.
-Atagul IDE, oyun değil; Türkçe arayüzlü bir yazılım geliştirme ortamıdır.
+Ahmet Mete Atagül, Atagul Games’in kurucusu ve baş geliştiricisidir. Yazılım geliştirme ve oyun üretimi alanında bireysel projeler yürütmektedir. Atagul IDE’yi geliştirerek Türkçe arayüzlü bir yazılım ortamı sunmuştur. Şirketin her aşamasında aktif rol alır; tasarım, programlama, yayın süreçlerini yönetir.
 </p>
 </div>
 </div>
@@ -235,18 +225,21 @@ Atagul IDE, oyun değil; Türkçe arayüzlü bir yazılım geliştirme ortamıd�
 <h2>Projeler</h2>
 <div class="grid">
 <div class="card">
-<img src="assets/games/atagul-doner.jpg">
+<img src="assets/games/atagul-doner.jpg" alt="Atagul Döner">
 <h3>Atagul Döner</h3>
 <p>
-Bağımsız olarak geliştirilen eğlenceli bir oyun projesidir.
+Bağımsız bir oyun projesidir. Hem Gamejolt hem Itch.io üzerinde yayınlanmıştır. Oyun eğlenceli, kullanıcı odaklı ve uzun soluklu geliştirme sürecinin bir ürünüdür.
 </p>
+<p>
+Gamejolt linkleri: <a href="https://gamejolt.com/games/atagulide/1041040" target="_blank">Atagul IDE</a> | <a href="https://gamejolt.com/games/ataguldoner/1030137" target="_blank">Atagul Döner</a></p>
+<p>
+Itch.io linkleri: <a href="https://atagul-games.itch.io/atagul-doner" target="_blank">Atagul Döner</a> | <a href="https://atagul-games.itch.io/atagulide" target="_blank">Atagul IDE</a></p>
 </div>
-
 <div class="card">
-<img src="assets/games/atagul-ide.jpg">
+<img src="assets/games/atagul-ide.jpg" alt="Atagul IDE">
 <h3>Atagul IDE</h3>
 <p>
-Oyun değildir. Yazılım geliştirme amacıyla oluşturulmuş bir geliştirme ortamıdır.
+Oyun değil; yazılım geliştirme ortamıdır. Türkçe arayüzü ile yerli geliştiricilere hitap eder ve bağımsız geliştirme kültürünü destekler. Her türlü proje geliştirmeye uygun modüller içerir.
 </p>
 </div>
 </div>
@@ -254,8 +247,15 @@ Oyun değildir. Yazılım geliştirme amacıyla oluşturulmuş bir geliştirme o
 
 <section id="contact">
 <h2>İletişim</h2>
-<p>E-posta: atagul.games@gmail.com</p>
-<p>Antalya / Kepez</p>
+<p>E-posta: <a href="mailto:atagul.games@gmail.com">atagul.games@gmail.com</a></p>
+<p>Adres: Antalya / Kepez</p>
+<div class="socials">
+  <a href="https://www.instagram.com/atagulgames/" target="_blank">📸 Instagram</a>
+  <a href="https://www.tiktok.com/@atagulgames" target="_blank">🎵 TikTok</a>
+  <a href="https://www.linkedin.com/in/atagul-games-8a4a73306/?originalSubdomain=tr" target="_blank">💼 LinkedIn</a>
+  <a href="https://atagulgames.wixsite.com/atagul-games" target="_blank">🌐 Wix Site</a>
+  <a href="https://gamesatagul.odoo.com" target="_blank">🌐 Odoo Site</a>
+</div>
 </section>
 
 <footer>
@@ -275,7 +275,6 @@ sections.forEach(s=>io.observe(s));
 // Arkaplan oyun ikonları
 const icons=["🎮","🕹️","👾","⭐","🔥","⚡"];
 const bg=document.getElementById("bg");
-
 for(let i=0;i<35;i++){
   let el=document.createElement("div");
   el.className="bg-item";
