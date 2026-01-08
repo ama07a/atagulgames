@@ -20,36 +20,60 @@ body{
   color:var(--text);
   font-family:'Poppins',sans-serif;
   overflow-x:hidden;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  min-height:100vh;
 }
 
-/* Ortadaki yazı */
-#logo-text{
+/* ==== INTRO ===== */
+#intro{
+  position:fixed;
+  inset:0;
+  background:#05060c;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  z-index:9999;
+  overflow:hidden;
+}
+
+.intro-text{
+  display:flex;
   font-family:'Orbitron',sans-serif;
-  font-size:80px;
-  color:var(--neon);
+  font-size:72px;
+  letter-spacing:6px;
   position:relative;
   z-index:2;
-  text-align:center;
-  white-space:nowrap;
-  letter-spacing:5px;
 }
 
-/* Duman efekti */
-.smoke{
+.intro-left{
+  transform:translateX(-120%);
+  animation:slideLeft 1.5s forwards;
+  color:var(--neon);
+}
+
+.intro-right{
+  transform:translateX(120%);
+  animation:slideRight 1.5s forwards;
+  color:var(--neon2);
+}
+
+@keyframes slideLeft{
+  to{transform:translateX(0);}
+}
+@keyframes slideRight{
+  to{transform:translateX(0);}
+}
+
+/* DUMAN */
+.smoke-circle{
   position:absolute;
-  width:40px;
-  height:40px;
+  width:50px;
+  height:50px;
   background:rgba(94,252,255,0.3);
   border-radius:50%;
-  filter:blur(15px);
-  top:50%;
+  filter:blur(20px);
   left:50%;
+  top:50%;
   transform:translate(-50%, -50%) scale(0);
-  animation:smokeAnim 4s forwards;
+  animation:smokeAnim 2.5s forwards;
 }
 
 @keyframes smokeAnim{
@@ -58,46 +82,190 @@ body{
   100%{transform:translate(-50%, -50%) scale(4.5); opacity:0;}
 }
 
-/* Sonsuz animasyon için */
-@keyframes floatSmoke{
-  0%{transform:translate(-50%, -50%) rotate(0deg);}
-  100%{transform:translate(-50%, -50%) rotate(360deg);}
+/* ==== SITE ==== */
+#site{
+  opacity:0;
+  transition:1s ease;
 }
 
+/* NAV */
+nav{
+  position:fixed;
+  top:0;
+  width:100%;
+  background:rgba(5,6,12,.85);
+  backdrop-filter:blur(10px);
+  z-index:1000;
+  border-bottom:1px solid rgba(94,252,255,.15);
+}
+
+nav ul{
+  margin:0;
+  padding:15px 40px;
+  list-style:none;
+  display:flex;
+  gap:30px;
+  justify-content:center;
+}
+
+nav a{
+  font-family:'Orbitron',sans-serif;
+  color:var(--soft);
+  text-decoration:none;
+  font-size:14px;
+}
+nav a:hover{
+  color:var(--neon);
+  text-shadow:0 0 10px rgba(94,252,255,.6);
+}
+
+/* HEADER */
+header{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:120px 20px;
+}
+header h1{
+  font-family:'Orbitron',sans-serif;
+  font-size:64px;
+  text-shadow:0 0 25px rgba(94,252,255,.6);
+}
+header p{
+  max-width:800px;
+  font-size:18px;
+  color:var(--soft);
+}
+
+/* SECTIONS */
+section{
+  max-width:1200px;
+  margin:auto;
+  padding:120px 20px;
+}
+
+h2{
+  font-family:'Orbitron',sans-serif;
+  color:var(--neon);
+  font-size:36px;
+}
+
+p{
+  max-width:900px;
+  line-height:1.9;
+  color:var(--soft);
+  margin-bottom:18px;
+}
+
+/* GRID */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:40px;
+}
+
+.card{
+  background:linear-gradient(180deg,#141a33,#0b0f1e);
+  padding:30px;
+  border-radius:16px;
+}
+
+.card img{
+  width:100%;
+  border-radius:12px;
+  margin-bottom:15px;
+}
+
+footer{
+  text-align:center;
+  padding:50px;
+  color:#7a84ff;
+}
 </style>
 </head>
 <body>
 
-<div id="logo-text">ATAGUL GAMES</div>
+<!-- INTRO -->
+<div id="intro">
+  <div class="intro-text">
+    <div class="intro-left">ATAGUL</div>
+    <div style="width:20px"></div>
+    <div class="intro-right">GAMES</div>
+  </div>
+</div>
+
+<!-- SITE -->
+<div id="site">
+<nav>
+<ul>
+  <li><a href="#home">Ana Sayfa</a></li>
+  <li><a href="#projects">Projeler</a></li>
+  <li><a href="#contact">İletişim</a></li>
+</ul>
+</nav>
+
+<header id="home">
+<h1>ATAGUL GAMES</h1>
+<p>Bağımsız oyun ve yazılım geliştirme stüdyosu</p>
+</header>
+
+<section id="projects">
+<h2>Projeler</h2>
+
+<div class="grid">
+<div class="card">
+<img src="assets/games/atagul-doner.jpg">
+<h3>Atagul Döner</h3>
+<p>
+Atagul Döner, bağımsız bir oyun projesidir ve oyuncuya mizah dolu, eğlenceli deneyimler sunar.  
+Oyuncular, kolay öğrenilen mekaniklerle kısa sürede oyuna adapte olabilir.  
+Oyun, basit görsellik ve akıcı animasyonlarla hem mobil hem masaüstü platformlarda çalışır.  
+Eğlenceli ve tekrar oynanabilirliği yüksek bir deneyim hedeflenmiştir.
+</p>
+</div>
+
+<div class="card">
+<img src="assets/games/atagul-ide.jpg">
+<h3>Atagul IDE</h3>
+<p>
+Atagul IDE, Türkçe arayüzlü bir geliştirme ortamıdır ve oyun değildir.  
+Yeni başlayan veya deneyimli geliştiriciler için anlaşılır ve sade bir kodlama deneyimi sunar.  
+Proje yönetimi, kod düzenleme ve hata kontrolü gibi temel araçlar içerir.  
+Amaç, bireysel geliştiricilerin hızlı ve verimli üretim yapabilmesini sağlamaktır.
+</p>
+</div>
+</div>
+</section>
+
+<section id="contact">
+<h2>İletişim</h2>
+<p>E-posta: atagul.games@gmail.com</p>
+<p>Antalya / Kepez</p>
+</section>
+
+<footer>© 2026 Atagul Games</footer>
+</div>
 
 <script>
-// Dumanları oluştur ve animasyon ekle
-function createSmoke(){
-  const count = 30; // Kaç duman olacak
-  const body = document.body;
-  for(let i=0;i<count;i++){
-    const s = document.createElement('div');
-    s.className = 'smoke';
-    // Her duman farklı süre ve dönüş açısı ile
-    s.style.animationDelay = (i*0.15) + 's';
-    s.style.animationDuration = (3 + Math.random()*2) + 's';
-    s.style.transform = `translate(-50%, -50%) rotate(${Math.random()*360}deg) scale(0)`;
-    body.appendChild(s);
+// DUMAN OLUŞTUR
+setTimeout(()=>{
+  const intro=document.getElementById("intro");
+  for(let i=0;i<20;i++){
+    const s=document.createElement("div");
+    s.className="smoke-circle";
+    s.style.animationDelay=(i*0.1)+"s";
+    intro.appendChild(s);
   }
-}
+},1600);
 
-// Sonsuz dönen duman
-function rotateSmoke(){
-  const smokes = document.querySelectorAll('.smoke');
-  smokes.forEach((s,i)=>{
-    s.style.animationName = 'smokeAnim';
-    s.style.animationIterationCount = 'infinite';
-  });
-}
-
-// Başlat
-createSmoke();
-rotateSmoke();
+// INTRO KAPAT
+setTimeout(()=>{
+  document.getElementById("intro").style.display="none";
+  document.getElementById("site").style.opacity=1;
+},4000);
 </script>
 
 </body>
