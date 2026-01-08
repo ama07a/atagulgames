@@ -5,8 +5,8 @@
 <title>Atagul Games</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Atagul Games — bağımsız oyun ve yazılım geliştirme stüdyosu. Kurucu: Ahmet Mete Atagül.">
-<meta name="keywords" content="Atagul Games, Atagul IDE, indie game, Türk geliştirici">
+<meta name="description" content="Atagul Games — bağımsız oyun ve yazılım geliştirme stüdyosu.">
+<meta name="keywords" content="Atagul Games, indie game, Atagul IDE">
 <meta name="google-site-verification" content="wjPTUMxMBJDC42E6Sxk3NU5EEZMPa19F9bMRq4t9kw8">
 
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
@@ -29,9 +29,35 @@ body{
   background:radial-gradient(circle at top,#0d1022,#05060c);
   color:var(--text);
   font-family:'Poppins',sans-serif;
+  overflow-x:hidden;
 }
 
-/* NAVBAR */
+/* ==== ARKAPLAN ANİMASYON ==== */
+.bg-animations{
+  position:fixed;
+  inset:0;
+  z-index:-1;
+  overflow:hidden;
+}
+
+.bg-item{
+  position:absolute;
+  font-size:40px;
+  opacity:.12;
+  animation:float linear infinite;
+  filter:drop-shadow(0 0 10px rgba(94,252,255,.4));
+}
+
+@keyframes float{
+  from{
+    transform:translateY(110vh) translateX(0) rotate(0deg);
+  }
+  to{
+    transform:translateY(-20vh) translateX(100px) rotate(360deg);
+  }
+}
+
+/* ==== NAVBAR ==== */
 nav{
   position:fixed;
   top:0;
@@ -56,7 +82,6 @@ nav a{
   color:var(--soft);
   text-decoration:none;
   font-size:14px;
-  letter-spacing:1px;
 }
 
 nav a:hover{
@@ -64,7 +89,7 @@ nav a:hover{
   text-shadow:0 0 10px rgba(94,252,255,.6);
 }
 
-/* HEADER */
+/* ==== HEADER ==== */
 header{
   min-height:100vh;
   display:flex;
@@ -79,7 +104,7 @@ header h1{
   font-family:'Orbitron',sans-serif;
   font-size:64px;
   margin:0;
-  text-shadow:0 0 20px rgba(94,252,255,.6);
+  text-shadow:0 0 25px rgba(94,252,255,.6);
 }
 
 header p{
@@ -89,7 +114,7 @@ header p{
   margin-top:20px;
 }
 
-/* SECTIONS */
+/* ==== SECTIONS ==== */
 section{
   max-width:1200px;
   margin:auto;
@@ -118,14 +143,13 @@ p{
   margin-bottom:18px;
 }
 
-/* GRID */
+/* ==== GRID & CARD ==== */
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
   gap:40px;
 }
 
-/* CARD */
 .card{
   background:linear-gradient(180deg,#141a33,#0b0f1e);
   padding:30px;
@@ -144,7 +168,7 @@ p{
   margin-bottom:15px;
 }
 
-/* FOOTER */
+/* ==== FOOTER ==== */
 footer{
   text-align:center;
   padding:50px 20px;
@@ -156,6 +180,9 @@ footer{
 </head>
 
 <body>
+
+<!-- ARKAPLAN ANİMASYON KATMANI -->
+<div class="bg-animations" id="bg"></div>
 
 <nav>
 <ul>
@@ -171,30 +198,21 @@ footer{
 <h1>ATAGUL GAMES</h1>
 <p>
 Bağımsız oyun ve yazılım geliştirme stüdyosu.  
-Fikirden ürüne uzanan uzun soluklu projeler.
+Oyun kültüründen gelen fikirlerle üretilmiş projeler.
 </p>
 </header>
 
 <section id="about">
 <h2>Biz Kimiz</h2>
-
 <p>
-Atagul Games, 2024 yılında Antalya / Kepez merkezli olarak kurulmuş bağımsız bir oyun ve yazılım geliştirme markasıdır.
-Kuruluş amacı; hızlı tüketilen içerikler yerine, uzun vadeli ve öğretici projeler üretmektir.
-Stüdyo, bireysel geliştirme yaklaşımını benimser ve her projeyi sıfırdan planlayarak hayata geçirir.
+Atagul Games, 2024 yılında Antalya / Kepez’de kurulmuş bağımsız bir oyun ve yazılım geliştirme markasıdır.
+Kuruluş amacı, oyun kültürünü ve yazılım üretimini sade ama etkili projelerle birleştirmektir.
+Stüdyo, küçük ölçekli ama yüksek odaklı bir geliştirme anlayışını benimser.
 </p>
-
 <p>
-Atagul Games çatısı altında geliştirilen projeler yalnızca oyunlarla sınırlı değildir.
-Yazılım araçları, geliştirici destek sistemleri ve deneysel dijital projeler de bu yapı içerisinde yer alır.
-Her ürün, kullanıcı deneyimi ve erişilebilirlik ön planda tutularak tasarlanır.
-</p>
-
-<p>
-Şirket yapısı küçük ve esnek tutulmuştur.
-Bu sayede fikirler hızlı şekilde prototipe dönüşebilir ve geliştirilebilir.
-Atagul Games, bağımsız geliştirici kültürünü benimseyerek,
-yerel ve uluslararası platformlarda kendi üretimlerini yayınlamayı hedefler.
+Geliştirilen projeler; oyunlar, yazılım araçları ve deneysel dijital ürünlerden oluşur.
+Her proje, bireysel emekle ve uzun vadeli geliştirme süreçleriyle ortaya çıkar.
+Atagul Games, hızlı tüketilen trendler yerine kalıcı deneyimler üretmeyi hedefler.
 </p>
 </section>
 
@@ -204,17 +222,10 @@ yerel ve uluslararası platformlarda kendi üretimlerini yayınlamayı hedefler.
 <div class="card">
 <img src="assets/founder.jpg">
 <h3>Ahmet Mete Atagül</h3>
-
 <p>
-Ahmet Mete Atagül, Atagul Games’in kurucusu ve ana geliştiricisidir.
-Oyun ve yazılım geliştirme alanında bireysel projeler üretmektedir.
-Teknik altyapı, tasarım ve yayın süreçlerini tek başına yürütmektedir.
-</p>
-
-<p>
-Atagul IDE, Ahmet Mete Atagül tarafından geliştirilen bir yazılım geliştirme ortamıdır
-ve bir oyun değildir.
-Türkçe arayüzlü olmasıyla yerli geliştiricilere hitap eder.
+Atagul Games’in kurucusu ve geliştiricisidir.
+Oyun ve yazılım projelerini bireysel olarak tasarlayıp hayata geçirir.
+Atagul IDE, oyun değil; Türkçe arayüzlü bir yazılım geliştirme ortamıdır.
 </p>
 </div>
 </div>
@@ -227,8 +238,7 @@ Türkçe arayüzlü olmasıyla yerli geliştiricilere hitap eder.
 <img src="assets/games/atagul-doner.jpg">
 <h3>Atagul Döner</h3>
 <p>
-Atagul Döner, bağımsız olarak geliştirilen eğlenceli bir oyun projesidir.
-Oyun, farklı platformlarda yayınlanmış ve bireysel geliştirme sürecinin bir ürünü olmuştur.
+Bağımsız olarak geliştirilen eğlenceli bir oyun projesidir.
 </p>
 </div>
 
@@ -236,9 +246,7 @@ Oyun, farklı platformlarda yayınlanmış ve bireysel geliştirme sürecinin bi
 <img src="assets/games/atagul-ide.jpg">
 <h3>Atagul IDE</h3>
 <p>
-Atagul IDE, oyun değildir.
-Yazılım geliştirme amacıyla tasarlanmış,
-Türkçe arayüzlü bağımsız bir geliştirme ortamıdır.
+Oyun değildir. Yazılım geliştirme amacıyla oluşturulmuş bir geliştirme ortamıdır.
 </p>
 </div>
 </div>
@@ -255,6 +263,7 @@ Türkçe arayüzlü bağımsız bir geliştirme ortamıdır.
 </footer>
 
 <script>
+// Scroll animasyon
 const sections=document.querySelectorAll("section");
 const io=new IntersectionObserver(entries=>{
   entries.forEach(e=>{
@@ -262,6 +271,20 @@ const io=new IntersectionObserver(entries=>{
   });
 },{threshold:.2});
 sections.forEach(s=>io.observe(s));
+
+// Arkaplan oyun ikonları
+const icons=["🎮","🕹️","👾","⭐","🔥","⚡"];
+const bg=document.getElementById("bg");
+
+for(let i=0;i<35;i++){
+  let el=document.createElement("div");
+  el.className="bg-item";
+  el.innerText=icons[Math.floor(Math.random()*icons.length)];
+  el.style.left=Math.random()*100+"vw";
+  el.style.animationDuration=15+Math.random()*20+"s";
+  el.style.fontSize=30+Math.random()*40+"px";
+  bg.appendChild(el);
+}
 </script>
 
 </body>
