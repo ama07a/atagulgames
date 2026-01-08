@@ -1,289 +1,261 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
 
-<title>Atagul Games | Independent Game & Technology Studio</title>
-<meta name="description" content="Atagul Games is an independent game studio developing original games, tools and experimental technology projects.">
-<meta name="keywords" content="Atagul Games, indie game studio, game development, Atagul IDE, indie games">
-<meta name="author" content="Atagul Games">
+  <!-- 1 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- 2 -->
+  <meta name="description" content="Atagul Games, Türkiye merkezli bağımsız bir oyun ve yazılım stüdyosudur. ATAGUL IDE ile Türkiye'de geliştirilen ilk Türkçe yazılım geliştirme ortamlarından birini sunar." />
+  <!-- 3 -->
+  <meta name="keywords" content="Atagul Games, ATAGUL IDE, Türkçe IDE, indie game studio, GameJolt, itch.io, oyun stüdyosu, AR-GE, labs" />
+  <!-- 4 -->
+  <meta name="author" content="Atagul Games" />
+  <!-- 5 -->
+  <meta name="robots" content="index, follow" />
+  <!-- 6 -->
+  <meta name="google-site-verification" content="wjPTUMxMBJDC42E6Sxk3NU5EEZMPa19F9bMRq4t9kw8" />
 
-<style>
-:root{
-  --bg:#070a13;
-  --panel:#0f1426;
-  --card:#151b34;
-  --accent:#5ddcff;
-  --accent2:#c77dff;
-  --text:#eef0ff;
-  --muted:#a0a6c7;
-}
+  <title>Atagul Games | Indie Game & Software Studio</title>
 
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
+  <style>
+    :root {
+      --bg: #0b0f1a;
+      --bg-soft: #11172a;
+      --primary: #5da9ff;
+      --secondary: #7cffc4;
+      --text: #e6ecff;
+      --muted: #9aa4c7;
+      --card: #141b33;
+    }
 
-body{
-  margin:0;
-  font-family:Inter,Segoe UI,Arial,sans-serif;
-  background:
-    radial-gradient(1200px 600px at 15% -10%, #1c2355, transparent),
-    radial-gradient(900px 500px at 90% 10%, #3b1a5f, transparent),
-    var(--bg);
-  color:var(--text);
-}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    }
 
-header{
-  position:fixed;
-  top:0;
-  width:100%;
-  z-index:1000;
-  backdrop-filter:blur(10px);
-  background:rgba(7,10,19,.65);
-  border-bottom:1px solid #1c2245;
-}
+    body {
+      background: radial-gradient(1200px 600px at top, #111a3a, var(--bg));
+      color: var(--text);
+      line-height: 1.7;
+    }
 
-nav{
-  max-width:1200px;
-  margin:auto;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:16px 24px;
-}
+    header {
+      padding: 100px 20px;
+      text-align: center;
+      animation: fadeIn 1.2s ease;
+    }
 
-nav a{
-  color:var(--muted);
-  text-decoration:none;
-  margin-left:18px;
-  font-weight:500;
-}
+    header h1 {
+      font-size: 3.2rem;
+      letter-spacing: 2px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
 
-nav a:hover{color:var(--accent)}
+    header p {
+      max-width: 900px;
+      margin: 25px auto 0;
+      font-size: 1.15rem;
+      color: var(--muted);
+    }
 
-.logo{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  font-weight:800;
-}
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      padding: 15px;
+      background: rgba(10, 15, 35, 0.7);
+      backdrop-filter: blur(10px);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
 
-.logo-box{
-  width:42px;
-  height:42px;
-  border-radius:12px;
-  background:linear-gradient(135deg,var(--accent),var(--accent2));
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color:#000;
-}
+    nav a {
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
 
-section{
-  max-width:1200px;
-  margin:auto;
-  padding:120px 24px;
-}
+    nav a:hover {
+      color: var(--secondary);
+    }
 
-.hero{
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-}
+    section {
+      max-width: 1200px;
+      margin: auto;
+      padding: 90px 20px;
+    }
 
-.hero h1{
-  font-size:4rem;
-  margin:0;
-}
+    section h2 {
+      font-size: 2.2rem;
+      margin-bottom: 25px;
+      color: var(--primary);
+    }
 
-.hero p{
-  max-width:700px;
-  font-size:1.2rem;
-  color:var(--muted);
-}
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      margin-top: 30px;
+    }
 
-.btn{
-  display:inline-block;
-  margin-top:30px;
-  padding:14px 28px;
-  border-radius:999px;
-  background:linear-gradient(135deg,var(--accent),var(--accent2));
-  color:#000;
-  text-decoration:none;
-  font-weight:700;
-}
+    .card {
+      background: linear-gradient(180deg, var(--card), #0d1224);
+      border-radius: 16px;
+      padding: 25px;
+      transition: transform 0.35s, box-shadow 0.35s;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.35);
+    }
 
-.btn.alt{
-  background:none;
-  border:1px solid #2a2f55;
-  color:var(--text);
-  margin-left:14px;
-}
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 25px 60px rgba(0,0,0,0.55);
+    }
 
-h2{
-  font-size:2.8rem;
-  margin-bottom:20px;
-}
+    .card h3 {
+      color: var(--secondary);
+      margin-bottom: 10px;
+    }
 
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:28px;
-}
+    .card a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+    }
 
-.card{
-  background:linear-gradient(180deg,#171d3a,#10152a);
-  border:1px solid #232a55;
-  border-radius:22px;
-  padding:30px;
-  transition:.3s;
-}
+    .card a:hover {
+      text-decoration: underline;
+    }
 
-.card:hover{
-  transform:translateY(-6px);
-  border-color:var(--accent);
-}
+    footer {
+      background: #060914;
+      padding: 50px 20px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
 
-.card h3{margin-top:0}
+    footer strong {
+      color: var(--text);
+    }
 
-.divider{
-  height:1px;
-  margin:80px 0;
-  background:linear-gradient(90deg,transparent,#2b3270,transparent);
-}
-
-footer{
-  text-align:center;
-  padding:60px 20px;
-  color:#777;
-}
-</style>
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
 </head>
 
 <body>
 
+<nav>
+  <a href="#about">Biz Kimiz</a>
+  <a href="#ide">ATAGUL IDE</a>
+  <a href="#games">Oyunlar</a>
+  <a href="#labs">AR-GE / Labs</a>
+  <a href="#links">Sosyal & Platformlar</a>
+  <a href="#contact">İletişim</a>
+</nav>
+
 <header>
-  <nav>
-    <div class="logo">
-      <div class="logo-box">AG</div>
-      ATAGUL GAMES
-    </div>
-    <div>
-      <a href="#about">About</a>
-      <a href="#games">Games</a>
-      <a href="#labs">Labs</a>
-      <a href="#tools">Tools</a>
-      <a href="#contact">Contact</a>
-    </div>
-  </nav>
+  <h1>ATAGUL GAMES</h1>
+  <p>
+    Atagul Games, Antalya merkezli bağımsız bir oyun ve yazılım stüdyosudur.
+    Oyun geliştirme, yazılım araçları ve AR-GE projeleri üzerine odaklanan
+    stüdyomuz; yerli üretimi, Türkçe yazılımı ve erişilebilir teknolojiyi
+    merkezine alır.
+  </p>
 </header>
 
-<section class="hero">
-  <div>
-    <h1>Independent Game<br>Development Studio</h1>
+<section id="about">
+  <h2>Biz Kimiz?</h2>
+  <p>
+    Atagul Games, bireysel girişim ruhu ile doğmuş; oyun geliştirme,
+    yazılım üretimi ve deneysel teknoloji projeleri üzerinde çalışan
+    bağımsız bir stüdyodur. Amacımız yalnızca oyun yapmak değil,
+    aynı zamanda Türkiye'de yazılım ve oyun geliştirme kültürüne
+    katkı sağlayan kalıcı projeler üretmektir.
+  </p>
+  <p>
+    Eğitim, erişilebilirlik ve yerli yazılım vizyonu doğrultusunda,
+    özellikle Türkçe kaynak eksikliğini gidermeyi hedefleyen araçlar
+    geliştirmekteyiz.
+  </p>
+</section>
+
+<section id="ide">
+  <h2>ATAGUL IDE</h2>
+  <div class="card">
+    <h3>Türkiye’de Geliştirilen Türkçe IDE</h3>
     <p>
-      Atagul Games is an indie studio focused on original games,
-      experimental technology and creative tools.
+      ATAGUL IDE, Türkçe arayüz ve Türkçe odaklı öğrenme yaklaşımı ile
+      geliştirilen bir yazılım geliştirme ortamıdır. Proje, yazılıma
+      yeni başlayanlar için erişilebilirliği artırmayı hedefler.
     </p>
-    <a class="btn" href="#games">Explore Games</a>
-    <a class="btn alt" href="#labs">Atagul Labs</a>
+    <p>
+      ATAGUL IDE, Türkiye’de geliştirilen ve Türkçe dil desteğini
+      merkezine alan yazılım projelerinden biri olarak konumlanır.
+    </p>
+    <p>
+      🔗 <a href="https://gamejolt.com/games/atagulide/1041040" target="_blank">GameJolt</a> |
+      <a href="https://atagul-games.itch.io/atagulide" target="_blank">itch.io</a>
+    </p>
   </div>
 </section>
-
-<section id="about">
-  <h2>Who We Are</h2>
-  <p>
-    Atagul Games is an independent game and technology studio.
-    We develop games, tools and experimental projects driven by curiosity,
-    learning and creativity.
-  </p>
-  <p>
-    Our mission is not only to release games, but also to explore systems,
-    mechanics and development processes that push our technical understanding.
-  </p>
-</section>
-
-<div class="divider"></div>
 
 <section id="games">
-  <h2>Games</h2>
-  <div class="grid">
-
+  <h2>Oyunlarımız</h2>
+  <div class="card-grid">
     <div class="card">
-      <h3>ATAGUL DONER</h3>
+      <h3>ATAGUL Döner</h3>
       <p>
-        A casual arcade game with fast gameplay and simple mechanics.
-        Designed for accessibility and quick fun.
+        Eğlenceli mekanikler ve özgün fikirler üzerine kurulu
+        bağımsız bir oyun projesi.
       </p>
-      <p>Platforms: Itch.io, GameJolt</p>
-    </div>
-
-    <div class="card">
-      <h3>Experimental Prototypes</h3>
       <p>
-        Short-form games and prototypes used to test mechanics,
-        UI systems and gameplay loops.
+        🔗 <a href="https://gamejolt.com/games/ataguldoner/1030137" target="_blank">GameJolt</a> |
+        <a href="https://atagul-games.itch.io/atagul-doner" target="_blank">itch.io</a>
       </p>
     </div>
-
   </div>
 </section>
-
-<div class="divider"></div>
 
 <section id="labs">
-  <h2>Atagul Labs</h2>
-  <div class="grid">
-
-    <div class="card">
-      <h3>Gameplay Research</h3>
-      <p>
-        Testing mechanics, player interaction models and balancing systems.
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>Technical Experiments</h3>
-      <p>
-        Prototypes exploring engines, performance and automation.
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>Learning Projects</h3>
-      <p>
-        Educational experiments and research-driven development.
-      </p>
-    </div>
-
-  </div>
+  <h2>AR-GE / Labs</h2>
+  <p>
+    Atagul Games Labs, deneysel projelerin, prototiplerin ve
+    araştırma-geliştirme çalışmalarının yürütüldüğü alandır.
+    Henüz ürünleşmemiş fikirler burada test edilir.
+  </p>
 </section>
 
-<div class="divider"></div>
-
-<section id="tools">
-  <h2>Tools</h2>
-  <div class="card">
-    <h3>ATAGUL IDE</h3>
-    <p>
-      A lightweight development environment designed for learning,
-      prototyping and experimentation.
-    </p>
+<section id="links">
+  <h2>Sosyal Medya & Platformlar</h2>
+  <div class="card-grid">
+    <div class="card"><a href="https://www.instagram.com/atagulgames/" target="_blank">Instagram</a></div>
+    <div class="card"><a href="https://www.tiktok.com/@atagulgames" target="_blank">TikTok</a></div>
+    <div class="card"><a href="https://www.linkedin.com/in/atagul-games-8a4a73306/" target="_blank">LinkedIn</a></div>
+    <div class="card"><a href="https://atagulgames.wixsite.com/atagul-games" target="_blank">Wix Site</a></div>
+    <div class="card"><a href="https://gamesatagul.odoo.com" target="_blank">Odoo Site</a></div>
   </div>
 </section>
-
-<div class="divider"></div>
 
 <section id="contact">
-  <h2>Contact & Social</h2>
-  <p>Email: contact@atagulgames.com</p>
+  <h2>İletişim</h2>
   <p>
-    Itch.io • GameJolt • Instagram
+    📧 <strong>E-posta:</strong> atagul.games@gmail.com<br />
+    📍 <strong>Konum:</strong> Antalya / Kepez
   </p>
 </section>
 
 <footer>
-  © 2026 Atagul Games — Independent Game & Technology Studio
+  © 20256 <strong>ATAGUL GAMES</strong> — Tüm Hakları Saklıdır
 </footer>
 
 </body>
