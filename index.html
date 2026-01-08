@@ -3,13 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <title>Atagul Games</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Atagul Games — bağımsız oyun ve yazılım geliştirme stüdyosu.">
+<meta name="keywords" content="Atagul Games, indie game, Atagul IDE">
+<meta name="google-site-verification" content="wjPTUMxMBJDC42E6Sxk3NU5EEZMPa19F9bMRq4t9kw8">
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
 
 <style>
 :root{
-  --bg:#05060c;
+  --bg:#07080d;
+  --card:#0f1320;
   --neon:#5efcff;
   --neon2:#8a7dff;
   --text:#e6e9ff;
@@ -18,6 +23,7 @@
 
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
+
 body{
   margin:0;
   background:radial-gradient(circle at top,#0d1022,#05060c);
@@ -26,73 +32,32 @@ body{
   overflow-x:hidden;
 }
 
-/* ================= INTRO ================= */
-#intro{
+/* ==== ARKAPLAN ANİMASYON ==== */
+.bg-animations{
   position:fixed;
   inset:0;
-  background:#05060c;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  z-index:9999;
+  z-index:-1;
   overflow:hidden;
 }
 
-.intro-text{
-  display:flex;
-  font-family:'Orbitron',sans-serif;
-  font-size:72px;
-  letter-spacing:6px;
-}
-
-.intro-left{
-  transform:translateX(-120%);
-  animation:slideLeft 1.6s ease forwards;
-  color:var(--neon);
-}
-
-.intro-right{
-  transform:translateX(120%);
-  animation:slideRight 1.6s ease forwards;
-  color:var(--neon2);
-}
-
-@keyframes slideLeft{
-  to{transform:translateX(0)}
-}
-@keyframes slideRight{
-  to{transform:translateX(0)}
-}
-
-/* ================= DUMAN ================= */
-.smoke{
+.bg-item{
   position:absolute;
-  width:20px;
-  height:20px;
-  background:rgba(200,220,255,.6);
-  border-radius:50%;
-  filter:blur(8px);
-  animation:smoke 2.5s ease forwards;
+  font-size:40px;
+  opacity:.12;
+  animation:float linear infinite;
+  filter:drop-shadow(0 0 10px rgba(94,252,255,.4));
 }
 
-@keyframes smoke{
+@keyframes float{
   from{
-    transform:translateY(0) scale(1);
-    opacity:.8;
+    transform:translateY(110vh) translateX(0) rotate(0deg);
   }
   to{
-    transform:translateY(-120px) scale(4);
-    opacity:0;
+    transform:translateY(-20vh) translateX(100px) rotate(360deg);
   }
 }
 
-/* ================= SITE ================= */
-#site{
-  opacity:0;
-  transition:1.5s ease;
-}
-
-/* NAV */
+/* ==== NAVBAR ==== */
 nav{
   position:fixed;
   top:0;
@@ -118,12 +83,13 @@ nav a{
   text-decoration:none;
   font-size:14px;
 }
+
 nav a:hover{
   color:var(--neon);
   text-shadow:0 0 10px rgba(94,252,255,.6);
 }
 
-/* HEADER */
+/* ==== HEADER ==== */
 header{
   min-height:100vh;
   display:flex;
@@ -131,12 +97,13 @@ header{
   align-items:center;
   justify-content:center;
   text-align:center;
-  padding:120px 20px;
+  padding:120px 20px 40px;
 }
 
 header h1{
   font-family:'Orbitron',sans-serif;
   font-size:64px;
+  margin:0;
   text-shadow:0 0 25px rgba(94,252,255,.6);
 }
 
@@ -144,19 +111,29 @@ header p{
   max-width:800px;
   font-size:18px;
   color:var(--soft);
+  margin-top:20px;
 }
 
-/* SECTIONS */
+/* ==== SECTIONS ==== */
 section{
   max-width:1200px;
   margin:auto;
   padding:120px 20px;
+  opacity:0;
+  transform:translateY(60px);
+  transition:1s ease;
+}
+
+section.show{
+  opacity:1;
+  transform:none;
 }
 
 h2{
   font-family:'Orbitron',sans-serif;
-  color:var(--neon);
   font-size:36px;
+  color:var(--neon);
+  margin-bottom:30px;
 }
 
 p{
@@ -166,7 +143,7 @@ p{
   margin-bottom:18px;
 }
 
-/* GRID */
+/* ==== GRID & CARD ==== */
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
@@ -177,6 +154,12 @@ p{
   background:linear-gradient(180deg,#141a33,#0b0f1e);
   padding:30px;
   border-radius:16px;
+  transition:.4s;
+}
+
+.card:hover{
+  transform:translateY(-10px);
+  box-shadow:0 0 40px rgba(94,252,255,.25);
 }
 
 .card img{
@@ -185,30 +168,27 @@ p{
   margin-bottom:15px;
 }
 
+/* ==== FOOTER ==== */
 footer{
   text-align:center;
-  padding:50px;
+  padding:50px 20px;
+  font-size:14px;
   color:#7a84ff;
+  background:#05060c;
 }
 </style>
 </head>
 
 <body>
 
-<!-- INTRO -->
-<div id="intro">
-  <div class="intro-text">
-    <div class="intro-left">ATAGUL</div>
-    <div style="width:20px"></div>
-    <div class="intro-right">GAMES</div>
-  </div>
-</div>
+<!-- ARKAPLAN ANİMASYON KATMANI -->
+<div class="bg-animations" id="bg"></div>
 
-<!-- SITE -->
-<div id="site">
 <nav>
 <ul>
   <li><a href="#home">Ana Sayfa</a></li>
+  <li><a href="#about">Biz Kimiz</a></li>
+  <li><a href="#founder">Kurucu</a></li>
   <li><a href="#projects">Projeler</a></li>
   <li><a href="#contact">İletişim</a></li>
 </ul>
@@ -216,25 +196,49 @@ footer{
 
 <header id="home">
 <h1>ATAGUL GAMES</h1>
-<p>Bağımsız oyun ve yazılım geliştirme stüdyosu</p>
+<p>
+Bağımsız oyun ve yazılım geliştirme stüdyosu.  
+Oyun kültüründen gelen fikirlerle üretilmiş projeler.
+</p>
 </header>
+
+<section id="about">
+<h2>Biz Kimiz</h2>
+<p>
+Atagul Games, 2024 yılında Antalya / Kepez’de kurulmuş bağımsız bir oyun ve yazılım geliştirme markasıdır.
+Kuruluş amacı, oyun kültürünü ve yazılım üretimini sade ama etkili projelerle birleştirmektir.
+Stüdyo, küçük ölçekli ama yüksek odaklı bir geliştirme anlayışını benimser.
+</p>
+<p>
+Geliştirilen projeler; oyunlar, yazılım araçları ve deneysel dijital ürünlerden oluşur.
+Her proje, bireysel emekle ve uzun vadeli geliştirme süreçleriyle ortaya çıkar.
+Atagul Games, hızlı tüketilen trendler yerine kalıcı deneyimler üretmeyi hedefler.
+</p>
+</section>
+
+<section id="founder">
+<h2>Kurucu</h2>
+<div class="grid">
+<div class="card">
+<img src="assets/founder.jpg">
+<h3>Ahmet Mete Atagül</h3>
+<p>
+Atagul Games’in kurucusu ve geliştiricisidir.
+Oyun ve yazılım projelerini bireysel olarak tasarlayıp hayata geçirir.
+Atagul IDE, oyun değil; Türkçe arayüzlü bir yazılım geliştirme ortamıdır.
+</p>
+</div>
+</div>
+</section>
 
 <section id="projects">
 <h2>Projeler</h2>
-
 <div class="grid">
 <div class="card">
 <img src="assets/games/atagul-doner.jpg">
 <h3>Atagul Döner</h3>
 <p>
-Atagul Döner, eğlence odaklı ve mizah barındıran bağımsız bir oyun projesidir.
-Oyun, basit mekanikler üzerine kurulmuş olmasına rağmen oyuncuya akıcı ve keyifli bir deneyim sunmayı amaçlar.
-Grafik tarzı sade tutulmuş, performans ve erişilebilirlik ön planda tutulmuştur.
-</p>
-<p>
-Proje, mobil ve PC oyuncularını hedefleyerek geliştirilmiştir.
-Atagul Döner, hızlı tüketilen oyunlar yerine tekrar oynanabilirliği olan bir yapıya sahiptir.
-Oyun, Atagul Games’in eğlence odaklı projelerinin ilk örneklerinden biridir.
+Bağımsız olarak geliştirilen eğlenceli bir oyun projesidir.
 </p>
 </div>
 
@@ -242,14 +246,7 @@ Oyun, Atagul Games’in eğlence odaklı projelerinin ilk örneklerinden biridir
 <img src="assets/games/atagul-ide.jpg">
 <h3>Atagul IDE</h3>
 <p>
-Atagul IDE bir oyun değildir.
-Yazılım geliştirme amacıyla oluşturulmuş, Türkçe arayüzlü bir geliştirme ortamıdır.
-Özellikle yeni başlayan geliştiricilerin kod yazma sürecini daha anlaşılır hale getirmeyi hedefler.
-</p>
-<p>
-IDE içerisinde temel kod düzenleme, proje yönetimi ve kullanıcı dostu menüler bulunmaktadır.
-Karmaşık araçlardan uzak, sade bir yapı benimsenmiştir.
-Atagul IDE, bireysel geliştiriciler için öğrenme ve üretme sürecini kolaylaştırmak amacıyla tasarlanmıştır.
+Oyun değildir. Yazılım geliştirme amacıyla oluşturulmuş bir geliştirme ortamıdır.
 </p>
 </div>
 </div>
@@ -261,28 +258,33 @@ Atagul IDE, bireysel geliştiriciler için öğrenme ve üretme sürecini kolayl
 <p>Antalya / Kepez</p>
 </section>
 
-<footer>© 2026 Atagul Games</footer>
-</div>
+<footer>
+© 2026 Atagul Games
+</footer>
 
 <script>
-/* DUMAN OLUŞTUR */
-setTimeout(()=>{
-  const intro=document.getElementById("intro");
-  for(let i=0;i<25;i++){
-    const s=document.createElement("div");
-    s.className="smoke";
-    s.style.left="50%";
-    s.style.top="50%";
-    s.style.animationDelay=(Math.random()*0.5)+"s";
-    intro.appendChild(s);
-  }
-},1600);
+// Scroll animasyon
+const sections=document.querySelectorAll("section");
+const io=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting)e.target.classList.add("show");
+  });
+},{threshold:.2});
+sections.forEach(s=>io.observe(s));
 
-/* INTRO KAPAT */
-setTimeout(()=>{
-  document.getElementById("intro").style.display="none";
-  document.getElementById("site").style.opacity=1;
-},3200);
+// Arkaplan oyun ikonları
+const icons=["🎮","🕹️","👾","⭐","🔥","⚡"];
+const bg=document.getElementById("bg");
+
+for(let i=0;i<35;i++){
+  let el=document.createElement("div");
+  el.className="bg-item";
+  el.innerText=icons[Math.floor(Math.random()*icons.length)];
+  el.style.left=Math.random()*100+"vw";
+  el.style.animationDuration=15+Math.random()*20+"s";
+  el.style.fontSize=30+Math.random()*40+"px";
+  bg.appendChild(el);
+}
 </script>
 
 </body>
