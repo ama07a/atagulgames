@@ -3,26 +3,80 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Atagul Games | Game & Technology Studio</title>
+
+<title>Atagul Games | Independent Game & Technology Studio</title>
+<meta name="description" content="Atagul Games is an independent game studio developing original games, tools and experimental technology projects.">
+<meta name="keywords" content="Atagul Games, indie game studio, game development, Atagul IDE, indie games">
+<meta name="author" content="Atagul Games">
 
 <style>
 :root{
-  --bg:#0b0d12;
-  --card:#121623;
+  --bg:#070a13;
+  --panel:#0f1426;
+  --card:#151b34;
   --accent:#5ddcff;
   --accent2:#c77dff;
-  --text:#eaeaf0;
-  --muted:#a0a4b8;
+  --text:#eef0ff;
+  --muted:#a0a6c7;
 }
 
 *{box-sizing:border-box}
+html{scroll-behavior:smooth}
+
 body{
   margin:0;
-  font-family: Inter, Arial, sans-serif;
-  background: radial-gradient(1200px 600px at 10% -10%, #1b2140, transparent),
-              radial-gradient(800px 400px at 90% 10%, #2a1340, transparent),
-              var(--bg);
+  font-family:Inter,Segoe UI,Arial,sans-serif;
+  background:
+    radial-gradient(1200px 600px at 15% -10%, #1c2355, transparent),
+    radial-gradient(900px 500px at 90% 10%, #3b1a5f, transparent),
+    var(--bg);
   color:var(--text);
+}
+
+header{
+  position:fixed;
+  top:0;
+  width:100%;
+  z-index:1000;
+  backdrop-filter:blur(10px);
+  background:rgba(7,10,19,.65);
+  border-bottom:1px solid #1c2245;
+}
+
+nav{
+  max-width:1200px;
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:16px 24px;
+}
+
+nav a{
+  color:var(--muted);
+  text-decoration:none;
+  margin-left:18px;
+  font-weight:500;
+}
+
+nav a:hover{color:var(--accent)}
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  font-weight:800;
+}
+
+.logo-box{
+  width:42px;
+  height:42px;
+  border-radius:12px;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#000;
 }
 
 section{
@@ -31,165 +85,126 @@ section{
   padding:120px 24px;
 }
 
-h1,h2,h3{
-  letter-spacing:-0.5px;
-}
-
-h1{
-  font-size:4rem;
-  margin:0;
-}
-
-h2{
-  font-size:2.6rem;
-  margin-bottom:20px;
-}
-
-p{
-  max-width:820px;
-  font-size:1.05rem;
-  color:var(--muted);
-}
-
 .hero{
   min-height:100vh;
   display:flex;
   align-items:center;
 }
 
-.hero-inner{
-  animation:fadeUp 1.2s ease forwards;
+.hero h1{
+  font-size:4rem;
+  margin:0;
 }
 
-.logo{
-  display:flex;
-  align-items:center;
-  gap:14px;
-  margin-bottom:30px;
+.hero p{
+  max-width:700px;
+  font-size:1.2rem;
+  color:var(--muted);
 }
 
-.logo-box{
-  width:54px;
-  height:54px;
-  border-radius:14px;
-  background:linear-gradient(135deg,var(--accent),var(--accent2));
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-weight:900;
-  color:#000;
-}
-
-.tagline{
-  font-size:1.3rem;
-  color:#d0d4ff;
-  margin:20px 0 40px;
-}
-
-.buttons a{
+.btn{
   display:inline-block;
-  padding:14px 26px;
-  margin-right:14px;
+  margin-top:30px;
+  padding:14px 28px;
   border-radius:999px;
-  text-decoration:none;
-  font-weight:600;
   background:linear-gradient(135deg,var(--accent),var(--accent2));
   color:#000;
+  text-decoration:none;
+  font-weight:700;
 }
 
-.buttons a.secondary{
+.btn.alt{
   background:none;
-  color:var(--text);
   border:1px solid #2a2f55;
+  color:var(--text);
+  margin-left:14px;
+}
+
+h2{
+  font-size:2.8rem;
+  margin-bottom:20px;
 }
 
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:26px;
+  gap:28px;
 }
 
 .card{
-  background:linear-gradient(180deg,#151a30,#0f1220);
-  border:1px solid #1e2445;
-  border-radius:20px;
-  padding:28px;
-  position:relative;
-  overflow:hidden;
+  background:linear-gradient(180deg,#171d3a,#10152a);
+  border:1px solid #232a55;
+  border-radius:22px;
+  padding:30px;
+  transition:.3s;
 }
 
-.card::after{
-  content:"";
-  position:absolute;
-  inset:auto -40% -60% -40%;
-  height:120%;
-  background:radial-gradient(circle at center,rgba(93,220,255,.12),transparent 70%);
+.card:hover{
+  transform:translateY(-6px);
+  border-color:var(--accent);
 }
 
-.card h3{
-  margin-top:0;
-}
+.card h3{margin-top:0}
 
 .divider{
   height:1px;
-  background:linear-gradient(90deg,transparent,#2a2f55,transparent);
   margin:80px 0;
+  background:linear-gradient(90deg,transparent,#2b3270,transparent);
 }
 
 footer{
-  padding:60px 20px;
   text-align:center;
+  padding:60px 20px;
   color:#777;
-}
-
-@keyframes fadeUp{
-  from{opacity:0;transform:translateY(40px)}
-  to{opacity:1;transform:none}
 }
 </style>
 </head>
 
 <body>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-inner">
+<header>
+  <nav>
     <div class="logo">
       <div class="logo-box">AG</div>
-      <strong>ATAGUL GAMES</strong>
+      ATAGUL GAMES
     </div>
+    <div>
+      <a href="#about">About</a>
+      <a href="#games">Games</a>
+      <a href="#labs">Labs</a>
+      <a href="#tools">Tools</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+</header>
 
-    <h1>Independent<br>Game & Technology Studio</h1>
-
-    <p class="tagline">
-      We build original games, experimental projects and development tools  
-      driven by research, creativity and technology.
+<section class="hero">
+  <div>
+    <h1>Independent Game<br>Development Studio</h1>
+    <p>
+      Atagul Games is an indie studio focused on original games,
+      experimental technology and creative tools.
     </p>
-
-    <div class="buttons">
-      <a href="#games">Our Games</a>
-      <a href="#labs" class="secondary">Atagul Labs</a>
-    </div>
+    <a class="btn" href="#games">Explore Games</a>
+    <a class="btn alt" href="#labs">Atagul Labs</a>
   </div>
 </section>
 
-<!-- WHO WE ARE -->
-<section>
+<section id="about">
   <h2>Who We Are</h2>
   <p>
-    Atagul Games is an independent game and technology studio focused on building
-    interactive experiences, experimental games, and creative software tools.
-    We operate with an indie mindset while aiming for professional quality and long-term growth.
+    Atagul Games is an independent game and technology studio.
+    We develop games, tools and experimental projects driven by curiosity,
+    learning and creativity.
   </p>
   <p>
-    Our studio combines gameplay design, technical research, and rapid prototyping.
-    We value learning, iteration, and originality over shortcuts or trends.
+    Our mission is not only to release games, but also to explore systems,
+    mechanics and development processes that push our technical understanding.
   </p>
 </section>
 
 <div class="divider"></div>
 
-<!-- GAMES -->
 <section id="games">
   <h2>Games</h2>
   <div class="grid">
@@ -197,21 +212,17 @@ footer{
     <div class="card">
       <h3>ATAGUL DONER</h3>
       <p>
-        A casual arcade-style game designed with simple mechanics and fast feedback.
-        This project represents our early public releases and player-focused development approach.
+        A casual arcade game with fast gameplay and simple mechanics.
+        Designed for accessibility and quick fun.
       </p>
-      <p>
-        Platforms:<br>
-        Itch.io • GameJolt
-      </p>
+      <p>Platforms: Itch.io, GameJolt</p>
     </div>
 
     <div class="card">
-      <h3>Upcoming Projects</h3>
+      <h3>Experimental Prototypes</h3>
       <p>
-        We are actively working on new experimental games and prototypes.
-        Some projects explore minimal gameplay systems, others focus on
-        technology-driven mechanics and tools.
+        Short-form games and prototypes used to test mechanics,
+        UI systems and gameplay loops.
       </p>
     </div>
 
@@ -220,67 +231,54 @@ footer{
 
 <div class="divider"></div>
 
-<!-- LABS -->
 <section id="labs">
-  <h2>Atagul Labs (R&D)</h2>
-  <p>
-    Atagul Labs is our internal research and development space.
-    This is where we experiment with new ideas, systems, and technologies
-    before they become full products.
-  </p>
-
+  <h2>Atagul Labs</h2>
   <div class="grid">
+
     <div class="card">
       <h3>Gameplay Research</h3>
       <p>
-        Testing mechanics, interaction models and player behavior
-        through rapid prototypes.
+        Testing mechanics, player interaction models and balancing systems.
       </p>
     </div>
 
     <div class="card">
-      <h3>Tools & Automation</h3>
+      <h3>Technical Experiments</h3>
       <p>
-        Building lightweight tools to improve development workflows
-        and learning processes.
+        Prototypes exploring engines, performance and automation.
       </p>
     </div>
 
     <div class="card">
-      <h3>Educational Experiments</h3>
+      <h3>Learning Projects</h3>
       <p>
-        Projects focused on learning, experimentation and technical understanding.
+        Educational experiments and research-driven development.
       </p>
     </div>
+
   </div>
 </section>
 
 <div class="divider"></div>
 
-<!-- TOOLS -->
-<section>
+<section id="tools">
   <h2>Tools</h2>
   <div class="card">
     <h3>ATAGUL IDE</h3>
     <p>
-      ATAGUL IDE is a lightweight development environment designed for
-      learning, experimentation and small-scale projects.
-      It focuses on simplicity, speed and accessibility.
+      A lightweight development environment designed for learning,
+      prototyping and experimentation.
     </p>
   </div>
 </section>
 
 <div class="divider"></div>
 
-<!-- CONTACT -->
-<section>
-  <h2>Contact & Presence</h2>
+<section id="contact">
+  <h2>Contact & Social</h2>
+  <p>Email: contact@atagulgames.com</p>
   <p>
-    For collaborations, business inquiries or research discussions:
-  </p>
-  <p>
-    contact@atagulgames.com<br><br>
-    Itch.io • GameJolt
+    Itch.io • GameJolt • Instagram
   </p>
 </section>
 
