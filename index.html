@@ -286,104 +286,107 @@ for(let i=0;i<35;i++){
 }
 </script>
 <!-- AUDIO -->
-<audio id="bgAudio" loop preload="auto">
+<audio id="bgAudio" preload="auto" loop>
   <source src="assets/music/ses.MP3" type="audio/mpeg">
 </audio>
 
 <!-- COOKIE OVERLAY -->
 <div id="cookieOverlay">
-  <div id="cookiePanel">
+  <div id="cookieBox">
     <h2>🍪 Cookies</h2>
-    <p>Bu site arka plan sesi ve çerezler kullanır.</p>
-    <button id="acceptCookies">Evet</button>
+    <p>Bu site arka plan müziği ve çerezler kullanır.</p>
+    <button id="cookieYes">Evet</button>
   </div>
 </div>
 
 <style>
-/* Sayfayı kilitle */
-body.cookie-lock{
-  overflow:hidden;
+/* SAYFAYI KİLİTLE */
+body.locked {
+  overflow: hidden;
 }
 
-/* Blur + karartma */
-#cookieOverlay{
-  position:fixed;
-  inset:0;
-  background:rgba(5,6,12,.65);
-  backdrop-filter:blur(14px);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  z-index:9999;
+/* OVERLAY */
+#cookieOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(5,6,12,0.7);
+  backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
 }
 
-/* Panel */
-#cookiePanel{
-  background:linear-gradient(180deg,#141a33,#0b0f1e);
-  border:1px solid rgba(94,252,255,.3);
-  border-radius:18px;
-  padding:40px 50px;
-  text-align:center;
-  max-width:420px;
-  box-shadow:0 0 40px rgba(94,252,255,.25);
+/* PANEL */
+#cookieBox {
+  background: linear-gradient(180deg,#141a33,#0b0f1e);
+  border-radius: 18px;
+  padding: 35px 45px;
+  text-align: center;
+  box-shadow: 0 0 40px rgba(94,252,255,.25);
+  border: 1px solid rgba(94,252,255,.3);
 }
 
-#cookiePanel h2{
-  margin:0;
-  font-family:'Orbitron',sans-serif;
-  color:#5efcff;
+#cookieBox h2 {
+  margin: 0;
+  font-family: 'Orbitron', sans-serif;
+  color: #5efcff;
 }
 
-#cookiePanel p{
-  margin:15px 0 0;
-  color:#b9c2ff;
-  font-size:14px;
+#cookieBox p {
+  margin: 15px 0;
+  font-size: 14px;
+  color: #b9c2ff;
 }
 
-#cookiePanel button{
-  margin-top:25px;
-  padding:10px 26px;
-  border-radius:12px;
-  border:none;
-  background:#5efcff;
-  color:#05060c;
-  font-weight:700;
-  cursor:pointer;
+#cookieBox button {
+  margin-top: 15px;
+  padding: 10px 28px;
+  border: none;
+  border-radius: 12px;
+  background: #5efcff;
+  color: #05060c;
+  font-weight: 700;
+  cursor: pointer;
 }
 </style>
 
 <script>
-const audio = document.getElementById("bgAudio");
-const overlay = document.getElementById("cookieOverlay");
-const btn = document.getElementById("acceptCookies");
+(() => {
+  const audio = document.getElementById("bgAudio");
+  const overlay = document.getElementById("cookieOverlay");
+  const btn = document.getElementById("cookieYes");
 
-// Sayfa her zaman en üstten
-window.scrollTo(0,0);
+  // Sayfa HER ZAMAN en üst
+  window.scrollTo(0, 0);
 
-// İlk açılışta kilitle
-document.body.classList.add("cookie-lock");
+  // Kilitle
+  document.body.classList.add("locked");
 
-// Daha önce kabul edildiyse
-if(localStorage.getItem("cookiesAccepted")==="true"){
-  overlay.remove();
-  document.body.classList.remove("cookie-lock");
-  audio.volume = 0.35;
-  audio.play().catch(()=>{});
-}
+  // Önceden kabul edilmişse
+  if (localStorage.getItem("cookie_ok") === "1") {
+    overlay.remove();
+    document.body.classList.remove("locked");
+    audio.volume = 0.35;
+    audio.play().catch(()=>{});
+    return;
+  }
 
-// Evet deyince
-btn.addEventListener("click",()=>{
-  localStorage.setItem("cookiesAccepted","true");
-  overlay.remove();
-  document.body.classList.remove("cookie-lock");
-  window.scrollTo(0,0);
-  audio.volume = 0.35;
-  audio.play().catch(()=>{});
-});
+  // Evet basılınca
+  btn.onclick = () => {
+    localStorage.setItem("cookie_ok", "1");
+    overlay.remove();
+    document.body.classList.remove("locked");
+    window.scrollTo(0, 0);
+    audio.volume = 0.35;
+    audio.play().catch(()=>{});
+  };
+})();
 </script>
 
 
 </body>
 </html>
+
 
 
