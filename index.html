@@ -10,20 +10,125 @@
 <meta name="google-site-verification" content="4gfgyjCIT28UW3YsbFS_Oc3CyW3WjGHlu4Ibvoq-q2M" />
 
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
-  <audio id="bgAudio" preload="auto">
-  <source src="ses.mp3" type="audio/mpeg">
-    
+ <!-- BACKGROUND AUDIO -->
+<audio id="bgAudio" preload="auto">
+  <source src="assets/music/ses.mp3" type="audio/mpeg">
 </audio>
 
+<!-- COOKIE + AUDIO CONSENT BANNER -->
 <div id="cookieBanner" class="cookie-banner">
   <div class="cookie-content">
     <strong>Atagul Games</strong>
     <p>
-      We use cookies and background audio to improve your experience.
+      We use cookies and background audio to enhance your experience.
     </p>
     <button onclick="acceptCookies()">Accept</button>
   </div>
 </div>
+
+<!-- STYLE -->
+<style>
+.cookie-banner {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(15, 15, 20, 0.95);
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+  padding: 16px 20px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.45);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  display: none;
+  z-index: 9999;
+  animation: fadeUp 0.4s ease;
+}
+
+.cookie-content {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: #ffffff;
+}
+
+.cookie-content strong {
+  font-size: 14px;
+  color: #7cf5ff;
+  white-space: nowrap;
+}
+
+.cookie-content p {
+  font-size: 13px;
+  opacity: 0.85;
+  margin: 0;
+  max-width: 260px;
+}
+
+.cookie-content button {
+  background: linear-gradient(135deg, #00f5ff, #3b82f6);
+  border: none;
+  color: #000;
+  padding: 8px 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.cookie-content button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(0,245,255,0.4);
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 10px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+</style>
+
+<!-- SCRIPT -->
+<script>
+const audio = document.getElementById("bgAudio");
+const banner = document.getElementById("cookieBanner");
+
+// boşluksuz loop
+audio.addEventListener("ended", () => {
+  audio.currentTime = 0;
+  audio.play();
+});
+
+// otomatik başlatmayı dene
+async function tryAutoplay() {
+  try {
+    audio.volume = 0.4;
+    await audio.play();
+  } catch (e) {
+    banner.style.display = "block";
+  }
+}
+
+// cookie kabul
+function acceptCookies() {
+  localStorage.setItem("audioConsent", "true");
+  banner.style.display = "none";
+  audio.play();
+}
+
+// sayfa yüklenince
+window.addEventListener("load", () => {
+  if (localStorage.getItem("audioConsent") === "true") {
+    audio.play().catch(() => {});
+  } else {
+    tryAutoplay();
+  }
+});
+</script>
 
 <style>
 :root{
@@ -307,6 +412,7 @@ for(let i=0;i<35;i++){
 
 </body>
 </html>
+
 
 
 
