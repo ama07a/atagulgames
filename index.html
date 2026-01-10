@@ -286,50 +286,16 @@ for(let i=0;i<35;i++){
   bg.appendChild(el);
 }
 </script>
-<!-- ===== BACKGROUND MUSIC (UYUMLU BUTTON) ===== -->
 <audio id="bgAudio" loop preload="auto">
   <source src="assets/music/ses.mp3" type="audio/mpeg">
 </audio>
 
-<button id="soundBtn">🔊 Sound On</button>
-
-<style>
-#soundBtn{
-  position:fixed;
-  bottom:30px;
-  right:30px;
-  background:var(--card);
-  color:var(--neon);
-  border:2px solid var(--neon2);
-  border-radius:12px;
-  padding:10px 18px;
-  font-family:'Orbitron',sans-serif;
-  font-size:13px;
-  cursor:pointer;
-  backdrop-filter:blur(8px);
-  box-shadow:0 0 30px rgba(94,252,255,.2);
-  z-index:999;
-  transition:.3s ease;
-}
-#soundBtn:hover{
-  background:var(--neon2);
-  color:var(--bg);
-}
-</style>
-
-<script>
-const audio = document.getElementById("bgAudio");
-const btn = document.getElementById("soundBtn");
-
-// Ses dosyasını hazır tut
-audio.volume = 0.35;
-
-btn.addEventListener("click", () => {
-  audio.play().catch(()=>{});
-  btn.style.display = "none";
-});
-</script>
+<div id="cookieSound">
+  <span>🔊 Arka plan sesi aktif edilsin mi?</span>
+  <button id="acceptSound">Kabul Et</button>
+</div>
 
 </body>
 </html>
+
 
