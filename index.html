@@ -286,16 +286,72 @@ for(let i=0;i<35;i++){
   bg.appendChild(el);
 }
 </script>
+<!-- Background Music -->
 <audio id="bgAudio" loop preload="auto">
   <source src="assets/music/ses.mp3" type="audio/mpeg">
 </audio>
 
+<!-- Cookie-style Sound Consent -->
 <div id="cookieSound">
-  <span>🔊 Arka plan sesi aktif edilsin mi?</span>
+  <span>🔊 Arka plan sesini etkinleştirmek ister misin?</span>
   <button id="acceptSound">Kabul Et</button>
 </div>
 
+<style>
+#cookieSound {
+  position:fixed;
+  bottom:20px;
+  left:50%;
+  transform:translateX(-50%);
+  background:rgba(15,19,32,0.95);
+  border:1px solid rgba(94,252,255,0.25);
+  padding:12px 20px;
+  border-radius:14px;
+  font-family:'Orbitron',sans-serif;
+  color:var(--soft);
+  display:flex;
+  gap:10px;
+  align-items:center;
+  z-index:999;
+}
+#cookieSound button {
+  background:var(--neon2);
+  border:none;
+  color:var(--bg);
+  padding:6px 12px;
+  border-radius:8px;
+  cursor:pointer;
+}
+#cookieSound button:hover {
+  background:var(--neon);
+  color:var(--text);
+}
+</style>
+
+<script>
+// Music + Consent
+const bgAudio = document.getElementById("bgAudio");
+const cookieBox = document.getElementById("cookieSound");
+const acceptBtn = document.getElementById("acceptSound");
+
+// Eğer daha önce kabul edilmişse
+if (localStorage.getItem("soundAccepted") === "true") {
+  bgAudio.volume = 0.35;
+  bgAudio.play().catch(() => {});
+  cookieBox.style.display = "none";
+}
+
+acceptBtn.addEventListener("click", () => {
+  localStorage.setItem("soundAccepted", "true");
+  bgAudio.volume = 0.35;
+  bgAudio.play().catch(() => {});
+  cookieBox.style.display = "none";
+});
+</script>
+
+
 </body>
 </html>
+
 
 
