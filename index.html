@@ -286,73 +286,87 @@ for(let i=0;i<35;i++){
   bg.appendChild(el);
 }
 </script>
-<!-- Background Music -->
+<!-- AUDIO -->
 <audio id="bgAudio" loop preload="auto">
   <source src="assets/music/ses.MP3" type="audio/mpeg">
 </audio>
 
-<!-- Cookie-style Sound Consent -->
-<div id="cookieSound">
-  <span>🔊 Arka plan sesini etkinleştirmek ister misin?</span>
-  <button id="acceptSound">Kabul Et</button>
+<!-- COOKIE OVERLAY -->
+<div id="cookieOverlay">
+  <div id="cookiePanel">
+    <h2>🍪 Cookies</h2>
+    <p>Bu site deneyimi geliştirmek için çerezler ve arka plan sesi kullanır.</p>
+    <button id="acceptCookies">Kabul Et</button>
+  </div>
 </div>
 
 <style>
-#cookieSound {
+#cookieOverlay{
   position:fixed;
-  bottom:20px;
-  left:50%;
-  transform:translateX(-50%);
-  background:rgba(15,19,32,0.95);
-  border:1px solid rgba(94,252,255,0.25);
-  padding:12px 20px;
-  border-radius:14px;
-  font-family:'Orbitron',sans-serif;
-  color:var(--soft);
+  inset:0;
+  background:rgba(5,6,12,.6);
+  backdrop-filter:blur(10px);
   display:flex;
-  gap:10px;
   align-items:center;
-  z-index:999;
+  justify-content:center;
+  z-index:9999;
 }
-#cookieSound button {
-  background:var(--neon2);
+
+#cookiePanel{
+  background:linear-gradient(180deg,#141a33,#0b0f1e);
+  border:1px solid rgba(94,252,255,.3);
+  border-radius:18px;
+  padding:40px 50px;
+  text-align:center;
+  max-width:420px;
+  box-shadow:0 0 40px rgba(94,252,255,.25);
+}
+
+#cookiePanel h2{
+  margin-top:0;
+  font-family:'Orbitron',sans-serif;
+  color:#5efcff;
+}
+
+#cookiePanel p{
+  color:#b9c2ff;
+  font-size:14px;
+  line-height:1.6;
+}
+
+#cookiePanel button{
+  margin-top:20px;
+  padding:10px 22px;
+  border-radius:12px;
   border:none;
-  color:var(--bg);
-  padding:6px 12px;
-  border-radius:8px;
+  background:#5efcff;
+  color:#05060c;
+  font-weight:700;
   cursor:pointer;
-}
-#cookieSound button:hover {
-  background:var(--neon);
-  color:var(--text);
 }
 </style>
 
 <script>
-// Music + Consent
-const bgAudio = document.getElementById("bgAudio");
-const cookieBox = document.getElementById("cookieSound");
-const acceptBtn = document.getElementById("acceptSound");
+const audio = document.getElementById("bgAudio");
+const overlay = document.getElementById("cookieOverlay");
+const btn = document.getElementById("acceptCookies");
 
-// Eğer daha önce kabul edilmişse
-if (localStorage.getItem("soundAccepted") === "true") {
-  bgAudio.volume = 0.35;
-  bgAudio.play().catch(() => {});
-  cookieBox.style.display = "none";
+// Daha önce kabul edildiyse
+if (localStorage.getItem("cookiesAccepted") === "true") {
+  overlay.style.display = "none";
+  audio.volume = 0.35;
+  audio.play().catch(()=>{});
 }
 
-acceptBtn.addEventListener("click", () => {
-  localStorage.setItem("soundAccepted", "true");
-  bgAudio.volume = 0.35;
-  bgAudio.play().catch(() => {});
-  cookieBox.style.display = "none";
+// Kabul edilince
+btn.addEventListener("click", () => {
+  localStorage.setItem("cookiesAccepted", "true");
+  audio.volume = 0.35;
+  audio.play().catch(()=>{});
+  overlay.style.display = "none";
 });
 </script>
 
-
 </body>
 </html>
-
-
-
 
