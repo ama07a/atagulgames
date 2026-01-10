@@ -300,6 +300,10 @@ for(let i=0;i<35;i++){
 </div>
 
 <style>
+html, body{
+  scroll-behavior:auto;
+}
+
 #cookieOverlay{
   position:fixed;
   inset:0;
@@ -350,9 +354,13 @@ const audio = document.getElementById("bgAudio");
 const overlay = document.getElementById("cookieOverlay");
 const btn = document.getElementById("acceptCookies");
 
+// SAYFA HER ZAMAN EN ÜSTTEN BAŞLASIN
+window.scrollTo(0, 0);
+
 // Daha önce kabul edildiyse
 if (localStorage.getItem("cookiesAccepted") === "true") {
   overlay.style.display = "none";
+  window.scrollTo(0, 0);
   audio.volume = 0.35;
   audio.play().catch(()=>{});
 }
@@ -360,11 +368,14 @@ if (localStorage.getItem("cookiesAccepted") === "true") {
 // Kabul edilince
 btn.addEventListener("click", () => {
   localStorage.setItem("cookiesAccepted", "true");
+  window.scrollTo(0, 0);
   audio.volume = 0.35;
   audio.play().catch(()=>{});
   overlay.style.display = "none";
 });
 </script>
+
 </body>
 </html>
+
 
