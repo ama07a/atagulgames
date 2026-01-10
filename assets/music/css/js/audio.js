@@ -31,3 +31,21 @@ window.addEventListener("load", () => {
   }
 });
 </script>
+// === COOKIE SOUND SYSTEM ===
+const bgAudio = document.getElementById("bgAudio");
+const cookieBox = document.getElementById("cookieSound");
+const acceptBtn = document.getElementById("acceptSound");
+
+if (localStorage.getItem("soundAccepted") === "true") {
+  bgAudio.volume = 0.35;
+  bgAudio.play().catch(()=>{});
+  cookieBox.style.display = "none";
+}
+
+acceptBtn.addEventListener("click", () => {
+  localStorage.setItem("soundAccepted", "true");
+  bgAudio.volume = 0.35;
+  bgAudio.play().catch(()=>{});
+  cookieBox.style.display = "none";
+});
+
