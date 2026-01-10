@@ -25,64 +25,6 @@ bozmadan koda göre renkler de çok zıt olmasın : <!DOCTYPE html>
 html{scroll-behavior:smooth}
 
 body{
-  <!-- BACKGROUND AUDIO -->
-<audio id="bgAudio" preload="auto" loop>
-  <source src="assets/music/ses.mp3" type="audio/mpeg">
-</audio>
-
-<!-- AUDIO PERMISSION OVERLAY -->
-<div id="audioPermission">
-  <div class="audio-box">
-    <h3>Atagul Games</h3>
-    <p>Ses deneyimini etkinleştirmek için tıkla</p>
-  </div>
-</div>
-
-<style>
-#audioPermission{
-  position:fixed;
-  inset:0;
-  background:rgba(5,6,12,.88);
-  backdrop-filter:blur(10px);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  z-index:9999;
-}
-
-.audio-box{
-  background:linear-gradient(180deg,#141a33,#0b0f1e);
-  border-radius:18px;
-  padding:40px 50px;
-  text-align:center;
-  box-shadow:0 0 40px rgba(94,252,255,.18);
-  cursor:pointer;
-}
-
-.audio-box h3{
-  margin:0 0 10px;
-  font-family:'Orbitron',sans-serif;
-  color:var(--neon);
-}
-
-.audio-box p{
-  margin:0;
-  font-size:14px;
-  color:var(--soft);
-}
-</style>
-
-<script>
-const audio = document.getElementById("bgAudio");
-const permission = document.getElementById("audioPermission");
-
-permission.addEventListener("click", () => {
-  audio.volume = 0.35;
-  audio.play();
-  permission.style.display = "none";
-});
-</script>
-
   margin:0;
   background:radial-gradient(circle at top,#0d1022,#05060c);
   color:var(--text);
