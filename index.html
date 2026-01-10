@@ -180,6 +180,26 @@ footer{
 </head>
 
 <body>
+  <audio id="bgAudio" loop>
+  <source src="assets/music/ses.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+const audio = document.getElementById("bgAudio");
+audio.volume = 0.35;
+
+function startAudio(){
+  audio.play().catch(()=>{});
+  document.removeEventListener("click", startAudio);
+  document.removeEventListener("scroll", startAudio);
+  document.removeEventListener("keydown", startAudio);
+}
+
+document.addEventListener("click", startAudio);
+document.addEventListener("scroll", startAudio);
+document.addEventListener("keydown", startAudio);
+</script>
+
 
 <!-- ARKAPLAN ANİMASYON KATMANI -->
 <div class="bg-animations" id="bg"></div>
@@ -289,4 +309,5 @@ for(let i=0;i<35;i++){
 
 </body>
 </html>
+
 
