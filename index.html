@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+bozmadan koda göre renkler de çok zıt olmasın : <!DOCTYPE html>
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
@@ -25,37 +25,6 @@
 html{scroll-behavior:smooth}
 
 body{
-  margin:0;
-  background:radial-gradient(circle at top,#0d1022,#05060c);
-  color:var(--text);
-  font-family:'Poppins',sans-serif;
-  overflow-x:hidden;
-}
-
-/* ==== ARKAPLAN ANİMASYON ==== */
-.bg-animations{
-  position:fixed;
-  inset:0;
-  z-index:-1;
-  overflow:hidden;
-}
-
-.bg-item{
-  position:absolute;
-  font-size:40px;
-  opacity:.12;
-  animation:float linear infinite;
-  filter:drop-shadow(0 0 10px rgba(94,252,255,.4));
-}
-
-@keyframes float{
-  from{
-    transform:translateY(110vh) translateX(0) rotate(0deg);
-  }
-  to{
-    transform:translateY(-20vh) translateX(100px) rotate(360deg);
-  }
-}
   <!-- BACKGROUND AUDIO -->
 <audio id="bgAudio" preload="auto" loop>
   <source src="assets/music/ses.mp3" type="audio/mpeg">
@@ -114,6 +83,37 @@ permission.addEventListener("click", () => {
 });
 </script>
 
+  margin:0;
+  background:radial-gradient(circle at top,#0d1022,#05060c);
+  color:var(--text);
+  font-family:'Poppins',sans-serif;
+  overflow-x:hidden;
+}
+
+/* ==== ARKAPLAN ANİMASYON ==== */
+.bg-animations{
+  position:fixed;
+  inset:0;
+  z-index:-1;
+  overflow:hidden;
+}
+
+.bg-item{
+  position:absolute;
+  font-size:40px;
+  opacity:.12;
+  animation:float linear infinite;
+  filter:drop-shadow(0 0 10px rgba(94,252,255,.4));
+}
+
+@keyframes float{
+  from{
+    transform:translateY(110vh) translateX(0) rotate(0deg);
+  }
+  to{
+    transform:translateY(-20vh) translateX(100px) rotate(360deg);
+  }
+}
 
 /* ==== NAVBAR ==== */
 nav{
@@ -347,5 +347,4 @@ for(let i=0;i<35;i++){
 
 </body>
 </html>
-
 
