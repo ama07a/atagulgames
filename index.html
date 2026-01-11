@@ -286,7 +286,7 @@ for(let i=0;i<35;i++){
 }
 </script>
 <!-- AUDIO -->
-<audio id="bgAudio" preload="auto" loop>
+<audio id="bgAudio" loop preload="auto">
   <source src="assets/music/ses.MP3" type="audio/mpeg">
 </audio>
 
@@ -294,37 +294,37 @@ for(let i=0;i<35;i++){
 <div id="cookieOverlay">
   <div id="cookieBox">
     <h2>🍪 Cookies</h2>
-    <p>Bu site arka plan müziği ve çerezler kullanır.</p>
+    <p>Bu site arka plan müziği kullanır. Devam etmek için kabul edin.</p>
     <button id="cookieYes">Evet</button>
   </div>
 </div>
 
 <style>
-/* SAYFAYI KİLİTLE */
+/* Sayfayı kilitle */
 body.locked {
   overflow: hidden;
 }
 
-/* OVERLAY */
+/* Blur + karartma */
 #cookieOverlay {
   position: fixed;
   inset: 0;
   background: rgba(5,6,12,0.7);
-  backdrop-filter: blur(12px);
+  backdrop-filter: blur(14px);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 10000;
 }
 
-/* PANEL */
+/* Panel */
 #cookieBox {
   background: linear-gradient(180deg,#141a33,#0b0f1e);
   border-radius: 18px;
-  padding: 35px 45px;
+  padding: 36px 46px;
   text-align: center;
-  box-shadow: 0 0 40px rgba(94,252,255,.25);
   border: 1px solid rgba(94,252,255,.3);
+  box-shadow: 0 0 40px rgba(94,252,255,.25);
 }
 
 #cookieBox h2 {
@@ -334,13 +334,13 @@ body.locked {
 }
 
 #cookieBox p {
-  margin: 15px 0;
+  margin: 14px 0;
   font-size: 14px;
   color: #b9c2ff;
 }
 
 #cookieBox button {
-  margin-top: 15px;
+  margin-top: 16px;
   padding: 10px 28px;
   border: none;
   border-radius: 12px;
@@ -352,41 +352,29 @@ body.locked {
 </style>
 
 <script>
-(() => {
-  const audio = document.getElementById("bgAudio");
-  const overlay = document.getElementById("cookieOverlay");
-  const btn = document.getElementById("cookieYes");
+const audio = document.getElementById("bgAudio");
+const overlay = document.getElementById("cookieOverlay");
+const btn = document.getElementById("cookieYes");
 
-  // Sayfa HER ZAMAN en üst
+// Sayfa her zaman en üstten başlasın
+window.scrollTo(0, 0);
+
+// Kilitle
+document.body.classList.add("locked");
+
+// Evet basılınca
+btn.addEventListener("click", () => {
+  overlay.remove();
+  document.body.classList.remove("locked");
   window.scrollTo(0, 0);
-
-  // Kilitle
-  document.body.classList.add("locked");
-
-  // Önceden kabul edilmişse
-  if (localStorage.getItem("cookie_ok") === "1") {
-    overlay.remove();
-    document.body.classList.remove("locked");
-    audio.volume = 0.35;
-    audio.play().catch(()=>{});
-    return;
-  }
-
-  // Evet basılınca
-  btn.onclick = () => {
-    localStorage.setItem("cookie_ok", "1");
-    overlay.remove();
-    document.body.classList.remove("locked");
-    window.scrollTo(0, 0);
-    audio.volume = 0.35;
-    audio.play().catch(()=>{});
-  };
-})();
+  audio.volume = 0.35;
+  audio.play().catch(()=>{});
+});
 </script>
-
 
 </body>
 </html>
+
 
 
 
